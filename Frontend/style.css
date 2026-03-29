@@ -14,7 +14,13 @@
 body {
     margin: 0;
     font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg);
+    /* Replace the URL below with your image link */
+    background: 
+        linear-gradient(rgba(248, 250, 252, 0.9), rgba(248, 250, 252, 0.9)), 
+        url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps image still while scrolling */
     color: var(--text);
     line-height: 1.5;
 }
@@ -148,6 +154,11 @@ nav a { color: #cbd5e1; text-decoration: none; font-size: 0.85rem; }
     padding: 0 1rem;
 }
 
+.sidebar {
+    display: grid;
+    gap: 1.5rem; /* Space between new expense form and recent expenses */
+}
+
 /* Update these specific sections in your style.css */
 
 .chart-container {
@@ -177,8 +188,8 @@ canvas {
     background: var(--white);
     padding: 1.5rem;
     border-radius: 12px;
-    border: 1px solid var(--border);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f1f5f9; /* Lighter border */
 }
 
 input, select {
@@ -321,4 +332,14 @@ footer {
     .footer-summary {
         justify-content: flex-end;
     }
+}
+
+#transaction-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #f8fafc;
+    border-radius: 6px;
+    font-size: 0.9rem;
 }
