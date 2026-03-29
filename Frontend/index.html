@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucid Ledger | Personal Finance</title>
+</head>
+<body>
+
+<header>
+    <div class="user-profile">
+        <div class="avatar">SJ</div>
+        <div>
+            <strong>Sarah Jenkins</strong><br>
+            <small>Finances Manager</small>
+        </div>
+    </div>
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Reports</a>
+        <a href="#" class="logout-btn">Logout</a>
+    </nav>
+</header>
+
+<main class="dashboard-grid">
+    <section class="sidebar">
+        <div class="card">
+            <h3>New Transaction</h3>
+            <form id="expense-form">
+                <div class="input-group">
+                    <label>Description</label>
+                    <input type="text" id="desc" placeholder="e.g. Monthly Rent" required>
+                </div>
+                <div class="input-group">
+                    <label>Amount</label>
+                    <input type="number" id="amount" placeholder="0.00" required>
+                </div>
+                <div class="input-group">
+                    <label>Category</label>
+                    <select id="category">
+                        <option value="Food & Dining">Food & Dining</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Transportation">Transportation</option>
+                        <option value="Entertainment">Entertainment</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">ADD EXPENSE</button>
+            </form>
+        </div>
+
+        <div class="card history-card">
+            <h3>Recent Expenses</h3>
+            <ul id="transaction-list">
+                </ul>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="total-display">
+            <small>TOTAL SPENT</small>
+            <h1 id="grand-total">$0.00</h1>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-box teal">
+                <small>This Month</small>
+                <div id="month-total">$0.00</div>
+            </div>
+            <div class="stat-box outline">
+                <small>Remaining</small>
+                <div id="remaining">$0.00</div>
+            </div>
+            <div class="stat-box teal">
+                <small>Income</small>
+                <div id="income-val">$3,000.00</div>
+            </div>
+        </div>
+
+        <div class="card chart-container">
+            <h3>Spending Breakdown</h3>
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+    </div>
+    <p>Copyright © 2026 Lucid Ledger Solutions Inc.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
