@@ -96,3 +96,26 @@ function updateChart(dataValues) {
 
 // Initialize with empty data
 updateUI();
+
+// Load data from "Database" on startup
+function loadData() {
+    const savedExpenses = localStorage.getItem('lucid_expenses');
+    if (savedExpenses) {
+        expenses = JSON.parse(savedExpenses);
+        updateUI();
+    }
+}
+
+// Save data to "Database" whenever an expense is added
+function saveToLocal() {
+    localStorage.setItem('lucid_expenses', JSON.stringify(expenses));
+}
+
+// Update your existing Form Submit listener to include saving:
+expenseForm.addEventListener('submit', (e) => {
+    // ... your existing code ...
+    saveToLocal(); // New line
+});
+
+// Call loadData at the very bottom of your script
+loadData();
