@@ -1,0 +1,308 @@
+:root {
+    --header-teal: #134e4a;
+    --accent-teal: #2d6a4f;
+    --bg: #f8fafc;
+    --text: #1e293b;
+    --border: #e2e8f0;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* --- Header --- */
+header {
+    background: var(--header-teal);
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on tiny screens */
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Notification Bell Styling */
+.notification-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.bell-icon {
+    font-size: 1.2rem;
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background: #ef4444; /* Alert red */
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
+    border: 2px solid var(--header-teal);
+}
+
+/* Dropdown Positioning & Hidden State */
+.notification-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 280px;
+    background: white;
+    color: var(--text);
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: none; /* Hidden by default */
+    overflow: hidden;
+}
+
+/* Show dropdown on hover (Can be changed to JS Click) */
+.notification-wrapper:hover .notification-dropdown {
+    display: block;
+}
+
+/* Dropdown Content Styling */
+.dropdown-header {
+    padding: 12px;
+    font-weight: bold;
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.notification-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.notif-item {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+}
+
+.notif-item:hover {
+    background: #f1f5f9;
+}
+
+.notif-item.unread {
+    background: #f0f9ff;
+    border-left: 3px solid #0ea5e9;
+}
+
+.notif-item p {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.dropdown-footer {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--header-teal);
+    font-weight: 600;
+    border-top: 1px solid var(--border);
+}
+
+.user-profile { display: flex; align-items: center; gap: 10px; }
+.avatar { 
+    width: 35px; height: 35px; background: #2dd4bf; 
+    border-radius: 4px; display: flex; align-items: center; 
+    justify-content: center; font-weight: bold; color: var(--header-teal);
+}
+
+nav { display: flex; gap: 15px; align-items: center; }
+nav a { color: #cbd5e1; text-decoration: none; font-size: 0.85rem; }
+.logout-btn { border: 1px solid white; padding: 4px 10px; border-radius: 4px; color: white; }
+
+/* --- Responsive Layout Grid --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for mobile */
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+}
+
+/* Desktop View (Screens wider than 900px) */
+@media (min-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 350px 1fr; /* Sidebar + Main Content */
+        padding: 0 2rem;
+    }
+}
+
+/* --- Cards & Inputs --- */
+.card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--header-teal);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover { background: var(--accent-teal); }
+
+/* --- Stats Boxes --- */
+.stats-row {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacks on mobile */
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+@media (min-width: 600px) {
+    .stats-row { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stat-box {
+    padding: 1.25rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-box.teal { background: var(--header-teal); color: white; }
+.stat-box.outline { border: 1px solid var(--header-teal); color: var(--header-teal); }
+
+/* --- Chart Sizing --- */
+.chart-container {
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+canvas {
+    max-width: 100% !important;
+    height: auto !important;
+    flex-grow: 1;
+}
+
+/* --- Modernized Footer --- */
+footer {
+    background-color: #0f172a; /* Deep slate, almost black */
+    color: #94a3b8;
+    padding: 2rem 5%;
+    margin-top: 4rem;
+    border-top: 1px solid #1e293b;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+/* Row 1: Links and Copyright */
+.footer-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #6366f1; /* Indigo accent */
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #818cf8;
+}
+
+/* Row 2: The "Summary Bar" (matches your image) */
+.footer-summary {
+    width: 100%;
+    background: #1e293b;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.summary-tag {
+    color: white;
+}
+
+.positive-diff {
+    color: #4ade80; /* Mint green for profit/remaining */
+    font-weight: 600;
+}
+
+/* Desktop Adjustment */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .footer-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-summary {
+        justify-content: flex-end;
+    }
+}

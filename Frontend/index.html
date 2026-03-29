@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucid Ledger | Personal Finance</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -15,11 +16,41 @@
             <small>Finances Manager</small>
         </div>
     </div>
-    <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Reports</a>
-        <a href="#" class="logout-btn">Logout</a>
-    </nav>
+
+    <div class="header-right">
+        <div class="notification-wrapper">
+            <div class="bell-icon">
+                <span class="bell-symbol">🔔</span>
+                <span class="notification-badge">3</span>
+            </div>
+            
+            <div class="notification-dropdown">
+                <div class="dropdown-header">Notifications</div>
+                <ul class="notification-list">
+                    <li class="notif-item unread">
+                        <strong>Over Budget!</strong>
+                        <p>You spent 15% more on Dining this week.</p>
+                    </li>
+                    <li class="notif-item">
+                        <strong>Income Received</strong>
+                        <p>Monthly salary ($3,000.00) has been added.</p>
+                    </li>
+                    <li class="notif-item">
+                        <strong>Bill Reminder</strong>
+                        <p>Rent is due in 2 days.</p>
+                    </li>
+                </ul>
+                <div class="dropdown-footer">View All</div>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+            <a href="#" class="logout-btn">Logout</a>
+        </nav>
+    </div>
 </header>
 
 <main class="dashboard-grid">
@@ -84,13 +115,23 @@
 </main>
 
 <footer>
-    <div class="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-    </div>
-    <p>Copyright © 2026 Lucid Ledger Solutions Inc.</p>
-</footer>
+    <div class="footer-container">
+        <div class="footer-summary">
+            <span class="summary-tag">Total Month Summary:</span>
+            <span>Spent: <strong>$1,480.00</strong></span>
+            <span>Income: <strong>$3,000.00</strong></span>
+            <span>Difference: <span class="positive-diff">+$1,520.00</span></span>
+        </div>
 
-<script src="script.js"></script>
+        <div class="footer-top">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+            </div>
+            <p style="margin: 0;">Copyright © 2026 Lucid Ledger Solutions Inc.</p>
+        </div>
+    </div>
+</footer>
 </body>
 </html>
