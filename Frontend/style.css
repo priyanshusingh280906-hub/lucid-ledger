@@ -148,6 +148,22 @@ nav a { color: #cbd5e1; text-decoration: none; font-size: 0.85rem; }
     padding: 0 1rem;
 }
 
+/* Update these specific sections in your style.css */
+
+.chart-container {
+    max-height: 400px; /* Prevents it from growing forever */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the chart horizontally */
+    justify-content: center;
+}
+
+canvas {
+    /* Important: Remove height: auto !important; it breaks Chart.js scaling */
+    max-width: 100% !important; 
+    max-height: 300px !important; /* Forces the actual drawing to stay small */
+}
+
 /* Desktop View (Screens wider than 900px) */
 @media (min-width: 900px) {
     .dashboard-grid {
