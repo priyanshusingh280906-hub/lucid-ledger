@@ -119,3 +119,22 @@ expenseForm.addEventListener('submit', (e) => {
 
 // Call loadData at the very bottom of your script
 loadData();
+
+// Function to send data to your Node.js backend
+async function addExpenseToBackend(expenseData) {
+    try {
+        const response = await fetch('http://localhost:3000/api/expenses', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(expenseData),
+        });
+
+        const result = await response.json();
+        console.log('Success:', result);
+        // Refresh your UI here after the backend confirms
+    } catch (error) {
+        console.error('Error reaching backend:', error);
+    }
+}
